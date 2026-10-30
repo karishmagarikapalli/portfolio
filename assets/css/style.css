@@ -654,6 +654,34 @@ section .container {
 /*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
+.projects .icon-box {
+  height: 100%;
+  padding: 36px 26px;
+  color: #d7d7d7;
+}
+
+.projects .icon-box:hover {
+  background: rgba(204, 204, 204, 0.14);
+}
+
+.projects .icon-box h4 {
+  color: #fff;
+}
+
+.projects .icon-box p {
+  margin: 0 0 14px;
+  color: #d7d7d7;
+}
+
+.projects .icon-box a {
+  color: #4ceb95;
+  font-weight: 600;
+}
+
+.projects .icon-box a:hover {
+  color: #fff;
+}
+
 .services .icon-box {
   text-align: center;
   background: rgba(204, 204, 204, 0.1);
