@@ -42,6 +42,35 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.portfolio-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #18d26e;
+  border-radius: 4px;
+  font-size: 15px;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.portfolio-action:hover,
+.portfolio-action:focus-visible {
+  color: #040404;
+  background: #18d26e;
+}
+
+.portfolio-action:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -242,6 +271,9 @@ h1, h2, h3, h4, h5, h6 {
 */
 .mobile-nav-toggle {
   color: #fff;
+  background: transparent;
+  border: 0;
+  padding: 0;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -250,6 +282,11 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   right: 15px;
   top: 15px;
+}
+
+.mobile-nav-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
 }
 
 @media (max-width: 991px) {

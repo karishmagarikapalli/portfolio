@@ -1,0 +1,55 @@
+name: Deploy portfolio to Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.4.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - name: Install validation dependencies
+        run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Test and check static site
+        run: |
+          pnpm test
+          pnpm run check:static
+      - name: Stage public site only
+        run: |
+          mkdir -p "$RUNNER_TEMP/portfolio-pages/assets"
+          cp index.html "$RUNNER_TEMP/portfolio-pages/index.html"
+          rsync -r --exclude='.*' --exclude='private/' --exclude='tests/' --exclude='backups/' --exclude='*.bak' --exclude='*.backup' --exclude='*~' assets/ "$RUNNER_TEMP/portfolio-pages/assets/"
+          node -e 'const { checkStatic } = require("./scripts/check-static.cjs"); const result = checkStatic(process.env.RUNNER_TEMP + "/portfolio-pages"); for (const error of result.errors) console.error(error); if (result.errors.length) process.exit(1);'
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ runner.temp }}/portfolio-pages
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

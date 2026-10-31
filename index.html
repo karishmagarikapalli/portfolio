@@ -39,14 +39,14 @@
       <h2>I'm a passionate <span>Software Developer</span> from Texas</h2>
 
       <nav id="navbar" class="navbar">
-        <ul>
+        <ul id="primary-navigation">
           <li><a class="nav-link active" href="#header">Home</a></li>
           <li><a class="nav-link" href="#about">About</a></li>
           <li><a class="nav-link" href="#resume">Resume</a></li>
           <li><a class="nav-link" href="#projects">Projects</a></li>
           <li><a class="nav-link" href="#contact">Contact</a></li>
         </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        <button type="button" class="bi bi-list mobile-nav-toggle" aria-label="Toggle navigation" aria-controls="primary-navigation" aria-expanded="false"></button>
       </nav><!-- .navbar -->
 
       <div class="social-links">
@@ -233,6 +233,7 @@
 
         <div class="section-title">
           <h2>Testimonials</h2>
+          <a class="portfolio-action" href="https://docs.google.com/forms/d/e/1FAIpQLSde5uBjB-ZtUXQoh7Z_FmMYlTrGpFGiE9XkUkEGI-B2Q50Wog/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"><i class="bi bi-pencil-square" aria-hidden="true"></i> Submit testimonial</a>
         </div>
   
         <div class="testimonials-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
@@ -593,33 +594,15 @@
           <div class="info-box">
             <i class="bx bx-envelope"></i>
             <h3>Email Me</h3>
-            <p>garikapallikarishma@gmail.com</p>
+            <p><a href="mailto:garikapallikarishma@gmail.com">garikapallikarishma@gmail.com</a></p>
           </div>
         </div>
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form mt-4">
-        <div class="row">
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message">There was a problem sending your message. Please send an email.</div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send Message</button></div>
-      </form>
+      <div class="contact-actions mt-4">
+        <a class="portfolio-action" href="mailto:garikapallikarishma@gmail.com"><i class="bi bi-envelope" aria-hidden="true"></i> Email me</a>
+        <a class="portfolio-action" href="https://docs.google.com/forms/d/e/1FAIpQLSde5uBjB-ZtUXQoh7Z_FmMYlTrGpFGiE9XkUkEGI-B2Q50Wog/viewform?usp=dialog" target="_blank" rel="noopener noreferrer"><i class="bi bi-pencil-square" aria-hidden="true"></i> Submit testimonial</a>
+      </div>
 
     </div>
   </section><!-- End Contact Section -->
@@ -633,12 +616,13 @@
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
 
   <!-- Template Main JS File -->
+  <script src="assets/js/approved-testimonials.js"></script>
+  <script src="assets/js/testimonials.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>

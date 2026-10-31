@@ -45,6 +45,7 @@
     select('#navbar').classList.toggle('navbar-mobile')
     this.classList.toggle('bi-list')
     this.classList.toggle('bi-x')
+    this.setAttribute('aria-expanded', String(select('#navbar').classList.contains('navbar-mobile')))
   })
 
   /**
@@ -71,6 +72,7 @@
         let navbarToggle = select('.mobile-nav-toggle')
         navbarToggle.classList.toggle('bi-list')
         navbarToggle.classList.toggle('bi-x')
+        navbarToggle.setAttribute('aria-expanded', 'false')
       }
 
       if (this.hash == '#header') {
